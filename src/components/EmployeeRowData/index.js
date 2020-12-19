@@ -1,20 +1,11 @@
 import React, { useContext } from "react";
 import "./EmployeeRowData.css"
 import EmployeeContext from "../../utils/EmployeeContext";
+import Moment from 'react-moment';
 
 const DirectoryBody = () => {
     const context = useContext(EmployeeContext);
 
-    //USE A CLEANER DATE FORMAT.
-    function formatDate(date){
-        const dateArray = date.split("-");
-        const year = dateArray[0];
-        const month = dateArray[1];
-        const dayArray = dateArray[2].split("T");
-        const day = dayArray[0];
-        const formattedDate =[month, day, year].join("-");
-        return formattedDate;
-    }
     return (
         <tbody>
         {context.employees.filteredUsers[0] !== undefined && context.employees.filteredUsers[0].name !== undefined ? (
@@ -28,7 +19,7 @@ const DirectoryBody = () => {
                     className="img-responsive"
                   />
                 </td>
-                <td data-th="Full Name" className="name-cell align-middle">
+                <td data-th="Fullname" className="fname align-middle">
                   {name.last}, {name.first}
                 </td>
                 <td data-th="Email" className="align-middle">
@@ -40,7 +31,9 @@ const DirectoryBody = () => {
                   {dob.age}
                 </td>
                 <td data-th="DOB" className="align-middle">
-                  {formatDate(dob.date)}
+                <Moment format="YYYY/MM/DD">
+                {dob.date}
+            </Moment>
                 </td>
               </tr>
             );

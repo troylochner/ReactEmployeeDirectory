@@ -1,6 +1,6 @@
 
-.name-cell{
-    text-transform: capitalize;  
+.fname{
+    font-weight: bolder;
 }
 
 /* [1] The container */
