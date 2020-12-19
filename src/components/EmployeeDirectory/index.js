@@ -2,11 +2,11 @@ import React, {useState, useEffect} from "react";
 import EmployeeTable from "../EmployeeTable";
 import Nav from "../Nav";
 import API from "../../utils/API";
-import "./DataArea.css";
-import DataAreaContext from "../../utils/DataAreaContext"
+import "./EmployeeDirectory.css";
+import EmployeeContext from "../../utils/EmployeeContext"
 
 
-const DataArea = () => {
+const EmployeeDirectory = () => {
       const [developerState, setDeveloperState] = useState({
         users: [],
         order: "ascend",
@@ -86,7 +86,7 @@ return b[heading]-  a[heading];
       }, []);
     
       return (
-            <DataAreaContext.Provider
+            <EmployeeContext.Provider
               value={{ developerState, handleSearchChange, handleSort }}
             >
               <Nav />
@@ -96,8 +96,8 @@ return b[heading]-  a[heading];
          : <div></div>
          }
               </div>
-            </DataAreaContext.Provider>
+            </EmployeeContext.Provider>
           );
         }
     
-    export default DataArea;
+    export default EmployeeDirectory;

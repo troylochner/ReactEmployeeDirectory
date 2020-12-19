@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import EmployeeRowData from "../EmployeeRowData";
 import "./EmployeeTable.css";
-import DataAreaContext from "../../utils/DataAreaContext";
+import EmployeeContext from "../../utils/EmployeeContext";
 
 const EmployeeTable = () => {
-    const context = useContext(DataAreaContext);
+    const context = useContext(EmployeeContext);
 
     return (
 
@@ -32,7 +32,6 @@ const EmployeeTable = () => {
                         })}
                     </tr>
                 </thead>
-
                 <EmployeeRowData />
             </table>
         </div>

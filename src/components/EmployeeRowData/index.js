@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import "./EmployeeRowData.css"
-import DataAreaContext from "../../utils/DataAreaContext"
+import DataAreaContext from "../../utils/EmployeeContext"
+import EmployeeContext from "../../utils/EmployeeContext";
 
 const DataBody = () => {
-    const context = useContext(DataAreaContext);
+    const context = useContext(EmployeeContext);
 
     //USE A CLEANER DATE FORMAT.
     function formatDate(date){
