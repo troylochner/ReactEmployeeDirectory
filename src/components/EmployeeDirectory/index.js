@@ -7,7 +7,7 @@ import EmployeeContext from "../../utils/EmployeeContext"
 
 
 const EmployeeDirectory = () => {
-        const [developerState, setDeveloperState] = useState({
+        const [ employees , setDeveloperState] = useState({
             users: [],
             order: "ascend",
             filteredUsers: [],
@@ -37,7 +37,7 @@ const EmployeeDirectory = () => {
         });
     
       const handleSort = heading => {
-        if (developerState.order === "descend") {
+        if (employees.order === "descend") {
             setDeveloperState({
                 order:"ascend"
             })
@@ -48,7 +48,7 @@ const EmployeeDirectory = () => {
         }
     
         const compareFnc = (a, b) => {
-          if (developerState.order === "ascend") {
+          if (employees.order === "ascend") {
             if (a[heading] === undefined) {
               return 1;
             } else if (b[heading] === undefined) {
@@ -70,30 +70,30 @@ return b[heading]-  a[heading];
         }
     }
     }
-        const sortedUsers = developerState.filteredUsers.sort(compareFnc);
+        const sortedUsers = employees.filteredUsers.sort(compareFnc);
 
         setDeveloperState({
-          ...developerState,
+          ...employees,
           filteredUsers: sortedUsers
 });
 
  }; 
       const filterEmployees = event => {
         const filter = event.target.value;
-        const filteredList = developerState.users.filter(item => {
+        const filteredList = employees.users.filter(item => {
           let values = item.name.last.toLowerCase() ;
           return values.indexOf(filter.toLowerCase()) !== -1;
         });
     
         setDeveloperState({ 
-        ...developerState, 
+        ...employees, 
         filteredUsers: filteredList });
       };
 
       useEffect(() => {
         API.getEmployeeList().then(results => {
           setDeveloperState({
-            ...developerState,
+            ...employees,
             users: results.data.results,
             filteredUsers: results.data.results
           });
@@ -102,11 +102,11 @@ return b[heading]-  a[heading];
     
       return (
             <EmployeeContext.Provider
-              value={{ developerState, filterEmployees, handleSort }}
+              value={{ employees, filterEmployees, handleSort }}
             >
               <Nav />
               <div className="data-area">
-                {developerState.filteredUsers.length > 0 
+                {employees.filteredUsers.length > 0 
         ? <EmployeeTable />
          : <div></div>
          }

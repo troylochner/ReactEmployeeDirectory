@@ -12,7 +12,7 @@ const SearchName = () => {
                 <input
                     className="form-control mr-sm-2"
                     type="search"
-                    placeholder="Filter Results"
+                    placeholder="Filter by Last Name"
                     aria-label="Search"
                     onChange={e => context.filterEmployees(e)}
                 />

@@ -15,7 +15,7 @@ const EmployeeTable = () => {
             >
                 <thead>
                     <tr>
-                        {context.developerState.headings.map(({ name, width }) => {
+                        {context.employees.headings.map(({ name, width }) => {
                             return (
                                 <th
                                     className="col"
