@@ -5,9 +5,6 @@ import axios from "axios";
 //https://randomuser.me ----> TO GET RANDOM USERS
 
 export default {
-  getEmployee: function () {
-    return axios.get("https://randomuser.me/api/")
-  },
   getEmployeeList: function () {
     return axios.get("https://randomuser.me/api/?results=10")
   },

@@ -5,6 +5,7 @@ import DataAreaContext from "../../utils/DataAreaContext"
 const DataBody = () => {
     const context = useContext(DataAreaContext);
 
+    //USE A CLEANER DATE FORMAT.
     function formatDate(date){
         const dateArray = date.split("-");
         const year = dateArray[0];
@@ -27,11 +28,8 @@ const DataBody = () => {
                     className="img-responsive"
                   />
                 </td>
-                <td data-th="Last Name" className="name-cell align-middle">
-                  {name.last}
-                </td>
-                <td data-th="First Name" className="name-cell align-middle">
-                  {name.first}
+                <td data-th="Full Name" className="name-cell align-middle">
+                  {name.last} {name.first}
                 </td>
                 <td data-th="Phone" className="align-middle">
                   {phone}

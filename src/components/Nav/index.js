@@ -1,7 +1,5 @@
 import React from 'react';
 import SearchName from "../SearchName";
-
-
 import "./Nav.css";
 
 function Nav() {

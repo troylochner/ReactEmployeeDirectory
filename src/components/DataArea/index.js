@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import DataTable from "../DataTable";
-
+import Nav from "../Nav";
 import API from "../../utils/API";
 import "./DataArea.css";
 import DataAreaContext from "../../utils/DataAreaContext"
@@ -11,9 +11,8 @@ const DataArea = () => {
         order: "ascend",
         filteredUsers: [],
         headings: [
-          { name: "", width: "10%", },
-          { name: "Last Name", width: "10%", },
-          { name: "First Name", width: "10%", },
+          { name: "", width: "5%", },
+          { name: "Name", width: "10%", },
           { name: "Phone", width: "20%", },
           { name: "Email", width: "20%", },
           { name: "Birthday", width: "10%", }
@@ -86,18 +85,18 @@ return b[heading]-  a[heading];
       }, []);
     
       return (
-        <DataAreaContext.Provider
-          value={{ developerState, handleSearchChange, handleSort }}
-        >
-        
-          <div className="data-area">
-            {developerState.filteredUsers.length > 0 
-    ? <DataTable />
-     : <div></div>
-     }
-          </div>
-        </DataAreaContext.Provider>
-      );
-    }
+            <DataAreaContext.Provider
+              value={{ developerState, handleSearchChange, handleSort }}
+            >
+              <Nav />
+              <div className="data-area">
+                {developerState.filteredUsers.length > 0 
+        ? <DataTable />
+         : <div></div>
+         }
+              </div>
+            </DataAreaContext.Provider>
+          );
+        }
     
     export default DataArea;

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./SearchName.css";
+import "./SearchEmployees.css";
 import DataAreaContext from "../../utils/DataAreaContext";
 
 
@@ -12,12 +12,12 @@ const SearchName = () => {
                 <input
                     className="form-control mr-sm-2"
                     type="search"
-                    placeholder="Search"
+                    placeholder="Filter Results"
                     aria-label="Search"
                     onChange={e => context.handleSearchChange(e)}
                 />
                 <button className="btn my-2 my-sm-0" type="submit">
-                    Search
+                    Find More
                  </button>
             </form>
         </div>
