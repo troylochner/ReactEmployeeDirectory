@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./EmployeeRowData.css"
 import EmployeeContext from "../../utils/EmployeeContext";
 
-const DataBody = () => {
+const DirectoryBody = () => {
     const context = useContext(EmployeeContext);
 
     //USE A CLEANER DATE FORMAT.
@@ -21,9 +21,9 @@ const DataBody = () => {
           context.employees.filteredUsers.map(({ login, name, picture, phone, email, dob }) => {
             return (
               <tr key={login.uuid}>
-                <td data-th="Image" className="align-middle">
+                <td data-th="Image" className="img-hover-zoom img-hover-zoom--xyz">
                   <img
-                    src={picture.medium}
+                    src={picture.large}
                     alt={"profile image for " + name.first + " " + name.last}
                     className="img-responsive"
                   />
@@ -52,4 +52,4 @@ const DataBody = () => {
     );
   }
   
-  export default DataBody;
+  export default DirectoryBody;
