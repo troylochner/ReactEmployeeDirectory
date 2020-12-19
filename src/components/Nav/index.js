@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchName from "../SearchName";
+import SearchEmployees from "../SearchEmployees";
 import "./Nav.css";
 
 function Nav() {
@@ -7,7 +7,7 @@ function Nav() {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
 
        <div className="search-area col-4">
-        <SearchName />
+        <SearchEmployees />
     </div>
 </nav>
     );
