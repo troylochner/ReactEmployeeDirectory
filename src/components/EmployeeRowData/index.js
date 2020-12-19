@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import "./EmployeeRowData.css"
-import DataAreaContext from "../../utils/EmployeeContext"
 import EmployeeContext from "../../utils/EmployeeContext";
 
 const DataBody = () => {
@@ -32,13 +31,13 @@ const DataBody = () => {
                 <td data-th="Full Name" className="name-cell align-middle">
                   {name.last} {name.first}
                 </td>
-                <td data-th="Phone" className="align-middle">
-                  {phone}
-                </td>
                 <td data-th="Email" className="align-middle">
                   <a href={"mailto:" + email} target="__blank">
                     {email}
                   </a>
+                </td>
+                <td data-th="Age" className="align-middle">
+                  {dob.age}
                 </td>
                 <td data-th="DOB" className="align-middle">
                   {formatDate(dob.date)}

@@ -7,18 +7,34 @@ import EmployeeContext from "../../utils/EmployeeContext"
 
 
 const EmployeeDirectory = () => {
-      const [developerState, setDeveloperState] = useState({
-        users: [],
-        order: "ascend",
-        filteredUsers: [],
-        headings: [
-          { name: "", width: "5%", },
-          { name: "Name", width: "10%", },
-          { name: "Phone", width: "20%", },
-          { name: "Email", width: "20%", },
-          { name: "Birthday", width: "10%", }
-        ]
-      });
+        const [developerState, setDeveloperState] = useState({
+            users: [],
+            order: "ascend",
+            filteredUsers: [],
+            headings: [{
+                    name: "",
+                    width: "10%",
+                },
+                {
+                    name: "Name",
+                    width: "20%",
+                },
+                {
+                    name: "Email",
+                    width: "20%",
+                },
+                {
+                    name: "Age",
+                    width: "15%",
+                },
+                {
+                    name: "Birthday",
+                    width: "15%",
+                }
+
+
+            ]
+        });
     
       const handleSort = heading => {
         if (developerState.order === "descend") {
