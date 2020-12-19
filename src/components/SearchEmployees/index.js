@@ -14,7 +14,7 @@ const SearchName = () => {
                     type="search"
                     placeholder="Filter Results"
                     aria-label="Search"
-                    onChange={e => context.handleSearchChange(e)}
+                    onChange={e => context.filterEmployees(e)}
                 />
                 <button className="btn my-2 my-sm-0" type="submit">
                     Reload

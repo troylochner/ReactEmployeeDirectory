@@ -29,7 +29,7 @@ const DataBody = () => {
                   />
                 </td>
                 <td data-th="Full Name" className="name-cell align-middle">
-                  {name.last} {name.first}
+                  {name.last}, {name.first}
                 </td>
                 <td data-th="Email" className="align-middle">
                   <a href={"mailto:" + email} target="__blank">

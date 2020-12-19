@@ -77,12 +77,11 @@ return b[heading]-  a[heading];
           filteredUsers: sortedUsers
 });
 
- };
-   
-      const handleSearchChange = event => {
+ }; 
+      const filterEmployees = event => {
         const filter = event.target.value;
         const filteredList = developerState.users.filter(item => {
-          let values = item.name.first.toLowerCase();
+          let values = item.name.last.toLowerCase() ;
           return values.indexOf(filter.toLowerCase()) !== -1;
         });
     
@@ -103,7 +102,7 @@ return b[heading]-  a[heading];
     
       return (
             <EmployeeContext.Provider
-              value={{ developerState, handleSearchChange, handleSort }}
+              value={{ developerState, filterEmployees, handleSort }}
             >
               <Nav />
               <div className="data-area">
