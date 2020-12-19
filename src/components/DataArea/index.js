@@ -12,7 +12,8 @@ const DataArea = () => {
         filteredUsers: [],
         headings: [
           { name: "", width: "10%", },
-          { name: "Name", width: "10%", },
+          { name: "Last Name", width: "10%", },
+          { name: "First Name", width: "10%", },
           { name: "Phone", width: "20%", },
           { name: "Email", width: "20%", },
           { name: "Birthday", width: "10%", }
