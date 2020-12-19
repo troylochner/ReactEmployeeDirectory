@@ -11,13 +11,5 @@ export default {
   getEmployeeList: function () {
     return axios.get("https://randomuser.me/api/?results=10")
   },
-  getRandomDog: function () {
-    return axios.get("https://dog.ceo/api/breeds/image/random");
-  },
-  getDogsOfBreed: function (breed) {
-    return axios.get("https://dog.ceo/api/breed/" + breed + "/images");
-  },
-  getBaseBreedsList: function () {
-    return axios.get("https://dog.ceo/api/breeds/list");
-  }
+
 };
