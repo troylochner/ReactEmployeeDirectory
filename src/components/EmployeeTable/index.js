@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import DataBody from "../DataBody";
-import "./DataTable.css";
+import EmployeeRowData from "../EmployeeRowData";
+import "./EmployeeTable.css";
 import DataAreaContext from "../../utils/DataAreaContext";
 
-const DataTable = () => {
+const EmployeeTable = () => {
     const context = useContext(DataAreaContext);
 
     return (
 
-        <div className="datatable mt-5">
+        <div className="empTable mt-5">
             <table
                 id="table"
                 className="table table-striped table-hover table-condensed"
@@ -33,10 +33,10 @@ const DataTable = () => {
                     </tr>
                 </thead>
 
-                <DataBody />
+                <EmployeeRowData />
             </table>
         </div>
     );
 }
 
-export default DataTable;
+export default EmployeeTable;

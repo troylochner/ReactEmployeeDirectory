@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react";
-import DataTable from "../DataTable";
+import EmployeeTable from "../EmployeeTable";
 import Nav from "../Nav";
 import API from "../../utils/API";
 import "./DataArea.css";
 import DataAreaContext from "../../utils/DataAreaContext"
+
 
 const DataArea = () => {
       const [developerState, setDeveloperState] = useState({
@@ -91,7 +92,7 @@ return b[heading]-  a[heading];
               <Nav />
               <div className="data-area">
                 {developerState.filteredUsers.length > 0 
-        ? <DataTable />
+        ? <EmployeeTable />
          : <div></div>
          }
               </div>

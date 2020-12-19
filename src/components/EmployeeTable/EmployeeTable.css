@@ -1,16 +1,16 @@
-.datatable .col {
+.empTable .col {
     cursor: pointer;
     background-color:rgb(37, 37, 37);
     color: white;
 }
 
-.datatable .col .pointer:after {
+.empTable .col .pointer:after {
     font-size: 80%;
     content: "";
     margin-right: 18px;
 }
 
-.datatable .col .pointer:hover:after {
+.empTable .col .pointer:hover:after {
     font-size: 80%;
     content: "🔻";
     margin-right: 0;
