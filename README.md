@@ -17,3 +17,5 @@ https://troylochner.github.io/ReactEmployeeDirectory/
 - Would like to improve the column filtering options. 
 - Would like to use a different sorting methodlogy. 
 
+## Application Home
+![GitHub Logo](public/app_image.png)
