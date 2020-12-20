@@ -7,7 +7,7 @@ import EmployeeContext from "../../utils/EmployeeContext"
 
 
 const EmployeeDirectory = () => {
-        const [ employees , setDeveloperState] = useState({
+        const [ employees , setEmployeeState] = useState({
             users: [],
             order: "ascend",
             filteredUsers: [],
@@ -36,16 +36,17 @@ const EmployeeDirectory = () => {
             ]
         });
     
-      const handleSort = heading => {
+      const sortList = heading => {
         if (employees.order === "descend") {
-            setDeveloperState({
+            setEmployeeState({
                 order:"ascend"
             })
-        } else{
-            setDeveloperState({
+        } else {
+            setEmployeeState({
                 order:"descend"
             })
         }
+        
     
         const compareFnc = (a, b) => {
           if (employees.order === "ascend") {
@@ -72,10 +73,12 @@ return b[heading]-  a[heading];
     }
         const sortedUsers = employees.filteredUsers.sort(compareFnc);
 
-        setDeveloperState({
+        setEmployeeState({
           ...employees,
           filteredUsers: sortedUsers
 });
+
+console.log(`Sort by ${heading} ${employees.order}`)
 
  }; 
       const filterEmployees = event => {
@@ -85,14 +88,14 @@ return b[heading]-  a[heading];
           return values.indexOf(filter.toLowerCase()) !== -1;
         });
     
-        setDeveloperState({ 
+        setEmployeeState({ 
         ...employees, 
         filteredUsers: filteredList });
       };
 
       useEffect(() => {
         API.getEmployeeList().then(results => {
-          setDeveloperState({
+          setEmployeeState({
             ...employees,
             users: results.data.results,
             filteredUsers: results.data.results
@@ -102,7 +105,7 @@ return b[heading]-  a[heading];
     
       return (
             <EmployeeContext.Provider
-              value={{ employees, filterEmployees, handleSort }}
+              value={{ employees, filterEmployees, sortList }}
             >
               <Nav />
               <div className="data-area">

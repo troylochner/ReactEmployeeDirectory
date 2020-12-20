@@ -22,7 +22,7 @@ const EmployeeTable = () => {
                                     key={name}
                                     style={{ width }}
                                     onClick={() => {
-                                        context.handleSort(name.toLowerCase());
+                                        context.sortList(name.toLowerCase());
                                     }}
                                 >
                                     {name}
