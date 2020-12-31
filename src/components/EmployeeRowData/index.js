@@ -10,8 +10,8 @@ const DirectoryBody = () => {
     return (
         <tbody> 
           
-          {context.employees.filteredUsers[0] !== undefined && context.employees.filteredUsers[0].name !== undefined ? (
-          context.employees.filteredUsers.map(({ login, name, picture, phone, email, dob }) => {
+          {context.employees.filteredUsers[0] !== undefined && context.employees.filteredUsers[0].name !== undefined ? 
+          (context.employees.filteredUsers.map(({ login, name, picture, phone, email, dob }) => {
             
             return (
 

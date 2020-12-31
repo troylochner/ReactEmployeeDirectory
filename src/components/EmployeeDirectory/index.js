@@ -36,7 +36,7 @@ const EmployeeDirectory = () => {
             ]
         });
     
-/*
+
         //BEGIN SORT PROCESS
       const sortList = heading => {
         if (employees.order === "descend") {
@@ -84,9 +84,9 @@ return b[heading]-  a[heading];
 console.log(`Sort by ${heading} ${employees.order}`)
         //END SORT PROCESS
  }; 
-*/
 
-/*
+
+
 //BEGIN FILTER PROCESS
       const filterEmployees = event => {
         const filter = event.target.value;
@@ -101,13 +101,12 @@ console.log(`Sort by ${heading} ${employees.order}`)
       };
 
 //END FILTER PROCESS
-*/
+
 
 //GET USER INFORMATION FROM THE API
       useEffect(() => {
         API.getEmployeeList().then(results => {
-          setEmployeeState({
-            ...employees,
+          setEmployeeState({...employees,
             users: results.data.results,
             filteredUsers: results.data.results
           });
@@ -116,10 +115,17 @@ console.log(`Sort by ${heading} ${employees.order}`)
     
 
       return (
-            //<EmployeeContext.Provider value={{ employees, filterEmployees, sortList }}>
-            <EmployeeContext.Provider value={{ employees }}>
+            <EmployeeContext.Provider value={{ employees, filterEmployees, sortList }}>
+            
             <Nav />
-              <div className="data-area"> {employees.filteredUsers.length > 0 ? <EmployeeTable />: <div></div>}
+            
+              <div className="data-area"> {employees.filteredUsers.length > 0 ? <EmployeeTable />: 
+        
+        <div>
+            NO NAMES FOUND TROY....
+        </div>
+
+            }
               </div>
             </EmployeeContext.Provider>
           );

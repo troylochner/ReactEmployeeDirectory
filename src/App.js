@@ -1,6 +1,5 @@
 import React from "react";
 //import React, {useState} from "react"; - Used in testing a new build
-import Wrapper from "./components/Wrapper";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import EmployeeDirectory from './components/EmployeeDirectory'
@@ -29,11 +28,9 @@ return (<div>
 function App() {
   return (
       <div>
-        <Wrapper>
-        <Header /> 
-        <EmployeeDirectory />
+        <Header/> 
+        <EmployeeDirectory/>
         <Footer/>
-        </Wrapper>
       </div>
   );
 }
