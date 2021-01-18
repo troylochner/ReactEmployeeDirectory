@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import EmployeeDirectory from "./EmployeeDirectory";
 import EmployeeContext from "../utils/EmployeeContext";
 const FilterBar = () => {
     
@@ -10,33 +9,10 @@ const FilterBar = () => {
         <div className="searchbox">
             
             <form className="form-inline">
-            
-                <input
-                    name="male"
-                    type="radio"
-                    value='male'
-                    placeholder="Filter by Cohort"
-                    aria-label="Search"
-                    onChange={e => context.filterEmployees(e)}
-                />  
-                <label for="male">Men</label><br/>
-
-                <input
-                    type="radio"
-                    name="female"
-                    value="female"
-                    placeholder="Filter by Cohort"
-                    aria-label="Search"
-                    onChange={e => context.filterEmployees(e)}
-                />
-                <label for="female">Women</label><br/>
-                
-
-                <hr></hr>
-
-                <button className="btn my-2 my-sm-0" type="submit">
-                    Reload
-                 </button>
+                <input name="male" type="radio" value='male' onClick={event => context.filterEmployees(event)}/>  
+                <label for="male">Males</label><br/>
+                <input name="female" type="radio" value='female' onClick={event => context.filterEmployees(event)}/>  
+                <label for="female">Females</label><br/>
             </form>
         </div>
         </nav>

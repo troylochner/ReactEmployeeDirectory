@@ -48,27 +48,25 @@ const EmployeeDirectory = () => {
             }
             ]
         });
-        //ADD FILTER
         //ADD SORT
 
         const filterEmployees = event =>{
             const filterBy = event.target.value;
-            console.log(filterBy)
-            /*const filterGroup = employees.filter(worker => {
-                switch (filterBy) {
-                    case 'male':
-                        return (employees.gender==='male')
-                        break;
-                    case 'female':
-                        return (employees.gender==='female')
-                        break;
-                }; 
+            console.log(filterBy);
+            const toFilter = employees.employees
+            console.log("🚀 ~ file: EmployeeDirectory.js ~ line 57 ~ EmployeeDirectory ~ toFilter", toFilter)
+            //console.log(toFilter);
+            const y = toFilter.filter(person => person.gender === filterBy )
+            console.log(y)
 
-            });
-            setEmployeeState({ 
+            //const x = employees.employees.filter(employees.gender==='male');
+            //console.log(x)
+
+
+                        /*setEmployeeState({ 
                 ...employees, 
-                filteredUsers: filterGroup });
-                */
+                filteredUsers: filterGroup });*/
+                
         }
 
 
