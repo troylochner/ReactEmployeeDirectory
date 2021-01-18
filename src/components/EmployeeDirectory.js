@@ -7,18 +7,20 @@ import API from "../utils/API";
 //STORE CONTEXT HERE -->
 import EmployeeContext from "../utils/EmployeeContext"
 
-let workers = [];
+let employees = [];
+let filteredEmployees = [];
 
 const EmployeeDirectory = () => {
         const [ employees , setEmployeeState] = useState({
             //Start out the employees as an empty array. 
-            workers: [],
+            employees: [],
+            //Begin filtered employees list as an empty array. 
+            filteredEmployees: [],
             //default the sort order to ascending
             order: "ascend",
             //Declare the our default sort mode should be by name. This is the most logical way to do so. 
             orderHeading :"Name",
-            //Begin filtered employees list as an empty array. 
-            filteredWorkers: [],
+        
             //HEADINGS ARE TO BE PASSED INTO OUR EMP TABLE --> THIS PROVIDES SIZING AND NAMES FOR OUR COLUMNS
             headings: [{
                 name: "",
@@ -46,69 +48,28 @@ const EmployeeDirectory = () => {
             }
             ]
         });
+        //ADD FILTER
+        //ADD SORT
 
-        //ADD SORT FUNCTION
-
-        //const sortList
-
-             
-         
-        //ADD FILTER FUNCTION
-       
-        //const filterList
-        
-        //USING FILTERING PROCESS DERIVED FROM https://stackoverflow.com/questions/33772718/how-to-filter-array-values-greater-than-x/33772764 /
-
-        //GET USER INFORMATION FROM THE API
-        //USING USEEFFECT TO GET MY API RESULTS
+        //USE EFFECT HOOK TO USE API AND RETURN BACK EMPLOYEE RESULTS
 useEffect(() => {
     API.getEmployeeList().then(results => {
-        //SET BOTH ARRAYS TO OUR RESULTS --> THE USERS BEING THE FULL LIST / FILTERED BEING THE REDUCED LIST
-        setEmployeeState({...employees, workers: results.data.results ,filteredWorkers: results.data.results, order: "descend"  });
-        console.log(results.data.results);
+        // DIRECTORY INITIAL STATE WILL CLEAR ALL ARRAYS
+        setEmployeeState({ ...employees, employees: results.data.results, filteredEmployees: results.data.results, order: "descend" });
+        //console.log(results.data.results);
     });
 }, [] );
 
-/*
-function filterEmployees(string) {
-    const filteredEmp = workers.filter(worker => {
-        switch (string) {
-            case 'boomers':
-                return (employees.dob.age > 57)
-                break;
-            case 'millenial':
-                return (employees.dob.age < 41)
-                break;
-        }; 
-        setEmployeeState({...employees, filteredWorkers: filteredEmp});
-    })
-}
-
-function sortEmployees(){
-    const filteredEmp = workers.sort((a,b)=>a-b)
-    return filteredEmp;
-}    
-*/
-
 //RETURN AND RENDER THE JSX
       return (
-        
-    <EmployeeContext.Provider value={{ employees, /* filterEmployees,  sortList*/ }}>
-        <Nav/>
-        {/* if no names are found matching the filter display that in place of the table*/}
-        <div className="data-area"> {employees.filteredWorkers.length > 0 ? <EmployeeTable/>: 
-        
-        <div>
-            NO MATCHING NAMES FOUND ..
-        </div>
-        
-        }
-       
-       </div>
+        <EmployeeContext.Provider
+            value={{ employees, filteredEmployees,  /*sortList*/ }}>
+            <Nav />
+            {/* if no names are found matching the filter display that in place of the table*/}
+            <div className="data-area"> {employees.filteredEmployees.length > 0 ? <EmployeeTable /> : <div> NO MATCHING NAMES FOUND </div>}</div>
+        </EmployeeContext.Provider>
 
-       </EmployeeContext.Provider>
+    );
+};
 
-          );
-        };
-    
-    export default EmployeeDirectory;
+export default EmployeeDirectory;
