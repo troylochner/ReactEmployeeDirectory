@@ -1,49 +1,34 @@
-import React, { useContext } from "react";
-//import "./SearchEmployees.css";
-import EmployeeContext from "../utils/EmployeeContext";
+import React, { component, useContext } from "react";
 import EmployeeDirectory from "./EmployeeDirectory";
-
 
 const FilterBar = () => {
     
-    const context = useContext(EmployeeContext);
-
     return (
+        <nav>
         <div className="searchbox">
             
             <form className="form-inline">
             
                 <input
-                    className="form-control mr-sm-2"
-                    name="millenials"
+                    name="male"
                     type="radio"
-                    value='<41'
+                    value='male'
                     placeholder="Filter by Cohort"
                     aria-label="Search"
-                    onChange={filterName => EmployeeDirectory.filterEmployees(filterName)}
+                    onChange={value => EmployeeDirectory.filterEmployees(value)}
                 />  
-                <label for="millenials">Millenials</label><br/>
+                <label for="male">Men</label><br/>
 
                 <input
-                    className="form-control mr-sm-2"
                     type="radio"
-                    name="genx"
-                    value='41...57'
+                    name="female"
+                    value="female"
                     placeholder="Filter by Cohort"
                     aria-label="Search"
-                    onChange={filterName => EmployeeDirectory.filterEmployees(filterName)}
+                    onChange={value => EmployeeDirectory.filterEmployees(value)}
                 />
-                <label for="genx">Gen-X</label><br/>
-                <input
-                    className="form-control mr-sm-2"
-                    type="radio"
-                    name="boomers"
-                    value='>57'
-                    placeholder="Filter by Cohort"
-                    aria-label="Search"
-                    onChange={filterName => EmployeeDirectory.filterEmployees(filterName)}
-                />
-                <label for="boomers">Boomers</label><br/>
+                <label for="female">Women</label><br/>
+                
 
                 <hr></hr>
 
@@ -52,6 +37,7 @@ const FilterBar = () => {
                  </button>
             </form>
         </div>
+        </nav>
     );
 }
 

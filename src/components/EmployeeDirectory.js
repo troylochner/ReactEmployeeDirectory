@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import EmployeeTable from "./EmployeeTable";
-import Nav from "./Nav";
 import API from "../utils/API";
+import FilterBar from "./FilterBar"
 //import "./EmployeeDirectory.css";
 
 //STORE CONTEXT HERE -->
@@ -60,16 +60,36 @@ useEffect(() => {
     });
 }, [] );
 
+function filterEmployees(value) {
+    const filteredEmployees = employees.filter(employees => {
+        switch (value) {
+            case 'male':
+                return (employees.gender === 'male')
+                break;
+  
+            case 'female':
+                return (employees.gender === 'female')
+                break;
+        }; 
+        setEmployeeState({...employees, filteredEmployees: filteredEmployees});
+    })
+  }
+  
+
 //RETURN AND RENDER THE JSX
       return (
-        <EmployeeContext.Provider
-            value={{ employees, filteredEmployees,  /*sortList*/ }}>
-            <Nav />
-            {/* if no names are found matching the filter display that in place of the table*/}
-            <div className="data-area"> {employees.filteredEmployees.length > 0 ? <EmployeeTable /> : <div> NO MATCHING NAMES FOUND </div>}</div>
+       
+        <EmployeeContext.Provider value={{ employees, filteredEmployees,  /*sortList*/ }}>
+            <FilterBar/>
+            <div className="data-area"> {employees.filteredEmployees.length > 0 ? 
+            <EmployeeTable />:<div> NO MATCHING NAMES FOUND </div>}
+            </div>
         </EmployeeContext.Provider>
+       
 
     );
 };
+
+
 
 export default EmployeeDirectory;

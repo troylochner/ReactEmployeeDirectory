@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-//import "./EmployeeRowData.css"
+import "./EmployeeRowData.css"
 import EmployeeContext from "../utils/EmployeeContext";
 import Moment from 'react-moment'; // USING REACT MOMENT SO WE CAN HANDLE THE DATE OF BIRTH MORE CLEANLY
 
