@@ -1,7 +1,9 @@
-import React, { component, useContext } from "react";
+import React, { useContext } from "react";
 import EmployeeDirectory from "./EmployeeDirectory";
-
+import EmployeeContext from "../utils/EmployeeContext";
 const FilterBar = () => {
+    
+    const context = useContext(EmployeeContext);
     
     return (
         <nav>
@@ -15,7 +17,7 @@ const FilterBar = () => {
                     value='male'
                     placeholder="Filter by Cohort"
                     aria-label="Search"
-                    onChange={value => EmployeeDirectory.filterEmployees(value)}
+                    onChange={e => context.filterEmployees(e)}
                 />  
                 <label for="male">Men</label><br/>
 
@@ -25,7 +27,7 @@ const FilterBar = () => {
                     value="female"
                     placeholder="Filter by Cohort"
                     aria-label="Search"
-                    onChange={value => EmployeeDirectory.filterEmployees(value)}
+                    onChange={e => context.filterEmployees(e)}
                 />
                 <label for="female">Women</label><br/>
                 

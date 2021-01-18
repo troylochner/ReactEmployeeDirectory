@@ -51,6 +51,39 @@ const EmployeeDirectory = () => {
         //ADD FILTER
         //ADD SORT
 
+        const filterEmployees = event =>{
+            const filterBy = event.target.value;
+            console.log(filterBy)
+            /*const filterGroup = employees.filter(worker => {
+                switch (filterBy) {
+                    case 'male':
+                        return (employees.gender==='male')
+                        break;
+                    case 'female':
+                        return (employees.gender==='female')
+                        break;
+                }; 
+
+            });
+            setEmployeeState({ 
+                ...employees, 
+                filteredUsers: filterGroup });
+                */
+        }
+
+
+        /*const filterEmployees = event => {
+                const filter = event.target.value;
+                const filteredList = employees.users.filter(item => {
+                  let values = item.gender.last.toLowerCase() ;
+                  return values.indexOf(filter.toLowerCase()) !== -1;
+                });
+            
+                setEmployeeState({ 
+                ...employees, 
+                filteredUsers: filteredList });
+              };*/
+
         //USE EFFECT HOOK TO USE API AND RETURN BACK EMPLOYEE RESULTS
 useEffect(() => {
     API.getEmployeeList().then(results => {
@@ -60,26 +93,13 @@ useEffect(() => {
     });
 }, [] );
 
-function filterEmployees(value) {
-    const filteredEmployees = employees.filter(employees => {
-        switch (value) {
-            case 'male':
-                return (employees.gender === 'male')
-                break;
-  
-            case 'female':
-                return (employees.gender === 'female')
-                break;
-        }; 
-        setEmployeeState({...employees, filteredEmployees: filteredEmployees});
-    })
-  }
+
   
 
 //RETURN AND RENDER THE JSX
       return (
        
-        <EmployeeContext.Provider value={{ employees, filteredEmployees,  /*sortList*/ }}>
+        <EmployeeContext.Provider value={{ employees, filterEmployees,  /*sortList*/ }}>
             <FilterBar/>
             <div className="data-area"> {employees.filteredEmployees.length > 0 ? 
             <EmployeeTable />:<div> NO MATCHING NAMES FOUND </div>}
