@@ -1,8 +1,9 @@
 import React from "react";
-//import React, {useState} from "react"; - Used in testing a new build
 import Header from './components/Header';
 import Footer from './components/Footer';
 import EmployeeDirectory from './components/EmployeeDirectory'
+
+//import React, {useState} from "react"; - Used in testing a new build
 //import TestComp from './components/TestComp' // This is just a test component.
 // import Hello from "./sayHello"; just playing around and testing. 
 
@@ -24,7 +25,7 @@ return (<div>
 </div>)
 }*/
 
-
+//KEEP COMPONENTS SIMPLE --> HEADER + FOOTER ; EMPLOYEE DIRECTORY WILL CONTAIN TWO SUB-COMPONENTS --> A HEADER + ROW DATA --> ALL LOGIC WILL BE CONTAINTED IN EMPLOYEE DIRECTORY
 function App() {
   return (
       <div>
