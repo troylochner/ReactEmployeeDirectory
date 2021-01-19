@@ -22,8 +22,9 @@
     transform: scale(1.25);
   }
 
-  .center-float-radio{
-   margin-left: 10vf;
+  .btn-group{
+    margin-bottom: 20px;
+    margin-left: 15px
   }
 
   .header {
