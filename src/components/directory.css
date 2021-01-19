@@ -1,0 +1,71 @@
+/* USING smooth zoom css strategy derived from https://w3bits.com/css-image-hover-zoom/ 
+
+.fname{
+    font-weight: bolder;
+}
+
+/* [1] The container */
+.img-hover-zoom {
+    height: 100px; /* [1.1] Set it as per your need */
+    overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+  }
+  
+  /* [2] Transition property for smooth transformation of images */
+  .img-hover-zoom img {
+    transition: transform 1s ease;
+  }
+  
+  /* [3] Finally, transforming the image when container gets hovered */
+  .img-hover-zoom:hover img {
+    transform: scale(1.25);
+  }
+
+  .header {
+    
+    padding: 30px 0;
+    color: #ffffff;
+    background-color: rgb(56, 56, 56);
+    width: 100%;
+    text-align: center;
+    border-bottom: 10px solid rgb(37, 37, 37);
+    margin-bottom: 10px;
+
+}
+
+.data-area {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.footer {
+  min-height: 100px;
+  background: #E5E5E5;
+  position: relative;
+}
+
+.footer span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3px;
+  background: #B8B8B8;
+}
+
+.empTable .col {
+  cursor: pointer;
+  background-color:rgb(37, 37, 37);
+  color: white;
+}
+
+.empTable .col .pointer:after {
+  font-size: 80%;
+  content: "";
+  margin-right: 18px;
+}
+
+.empTable .col .pointer:hover:after {
+  font-size: 80%;
+  content: "🔻";
+  margin-right: 0;
+}

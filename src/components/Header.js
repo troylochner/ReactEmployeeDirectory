@@ -1,6 +1,7 @@
 import React from "react";
 import FilterBar from "./SortFilterBar"
-//import "./Header.css";
+import "./directory.css";
+
 function Header () {
     return (
         <div className="header">
