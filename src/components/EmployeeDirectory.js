@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import EmployeeTable from "./EmployeeTable";
 import API from "../utils/API";
-import FilterBar from "./FilterBar"
+import SortFilterBar from "./SortFilterBar"
 //import "./EmployeeDirectory.css";
 
 //STORE CONTEXT HERE -->
@@ -49,38 +49,30 @@ const EmployeeDirectory = () => {
             ]
         });
         //ADD SORT
+        const sortEmployees = event =>{
+
+        }
 
         const filterEmployees = event =>{
             const filterBy = event.target.value;
-            console.log(filterBy);
+            //console.log(filterBy);
             const toFilter = employees.employees
-            console.log("🚀 ~ file: EmployeeDirectory.js ~ line 57 ~ EmployeeDirectory ~ toFilter", toFilter)
             //console.log(toFilter);
-            const y = toFilter.filter(person => person.gender === filterBy )
-            console.log(y)
-
-            //const x = employees.employees.filter(employees.gender==='male');
-            //console.log(x)
-
-
-                        /*setEmployeeState({ 
-                ...employees, 
-                filteredUsers: filterGroup });*/
+            const y = toFilter.filter(person => {
+                switch (filterBy) {
+                    case 'all':
+                    return toFilter
+                    break;
+                    default:
+                    return person.gender === filterBy;
+                    break
+                };
+            });
+            //console.log(y)
+            //AFTER FILTER HAS BEEN APPLIED ---> SET THE EMPLOYEE STATE AGAIN --> JUST FOR THE FILTERED GROUP
+            setEmployeeState({ ...employees, filteredEmployees: y });
                 
         }
-
-
-        /*const filterEmployees = event => {
-                const filter = event.target.value;
-                const filteredList = employees.users.filter(item => {
-                  let values = item.gender.last.toLowerCase() ;
-                  return values.indexOf(filter.toLowerCase()) !== -1;
-                });
-            
-                setEmployeeState({ 
-                ...employees, 
-                filteredUsers: filteredList });
-              };*/
 
         //USE EFFECT HOOK TO USE API AND RETURN BACK EMPLOYEE RESULTS
 useEffect(() => {
@@ -97,8 +89,8 @@ useEffect(() => {
 //RETURN AND RENDER THE JSX
       return (
        
-        <EmployeeContext.Provider value={{ employees, filterEmployees,  /*sortList*/ }}>
-            <FilterBar/>
+        <EmployeeContext.Provider value={{ employees, filterEmployees,  sortEmployees }}>
+            <SortFilterBar/>
             <div className="data-area"> {employees.filteredEmployees.length > 0 ? 
             <EmployeeTable />:<div> NO MATCHING NAMES FOUND </div>}
             </div>
