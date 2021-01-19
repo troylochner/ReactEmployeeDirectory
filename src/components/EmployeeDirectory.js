@@ -16,6 +16,7 @@ const EmployeeDirectory = () => {
             employees: [],
             //Begin filtered employees list as an empty array. 
             filteredEmployees: [],
+            filterBy:"all",
             //default the sort order to ascending
             order: "ascend",
             //Declare the our default sort mode should be by name. This is the most logical way to do so. 
@@ -83,7 +84,7 @@ const EmployeeDirectory = () => {
             });
             //console.log(y)
             //AFTER FILTER HAS BEEN APPLIED ---> SET THE EMPLOYEE STATE AGAIN --> JUST FOR THE FILTERED GROUP
-            setEmployeeState({ ...employees, filteredEmployees: y, order:sortOrder });
+            setEmployeeState({ ...employees, filteredEmployees: y, order:sortOrder, filterBy:filterBy });
                 
         }
 
@@ -95,9 +96,6 @@ useEffect(() => {
         //console.log(results.data.results);
     });
 }, [] );
-
-
-  
 
 //RETURN AND RENDER THE JSX
       return (

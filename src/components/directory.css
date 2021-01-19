@@ -4,6 +4,8 @@
     font-weight: bolder;
 }
 
+
+
 /* [1] The container */
 .img-hover-zoom {
     height: 100px; /* [1.1] Set it as per your need */
@@ -18,6 +20,10 @@
   /* [3] Finally, transforming the image when container gets hovered */
   .img-hover-zoom:hover img {
     transform: scale(1.25);
+  }
+
+  .center-float-radio{
+   margin-left: 10vf;
   }
 
   .header {
