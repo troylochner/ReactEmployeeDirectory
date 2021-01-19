@@ -54,6 +54,7 @@ const EmployeeDirectory = () => {
         }
 
         const filterEmployees = event =>{
+            console.log('fire')
             const filterBy = event.target.value;
             //console.log(filterBy);
             const toFilter = employees.employees
