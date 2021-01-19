@@ -17,6 +17,13 @@ const SortFilterBar = () => {
                 <label for="female">Women</label><br/>
             </form>
 
+            <form className="form-inline">
+                <input name="old" type="radio" value='old' checked={true} onClick={event => context.filterEmployees(event)}/>  
+                <label for="old">`Old to Young` </label><br/>
+                <input name="young" type="radio" value='young' onClick={event => context.filterEmployees(event)}/>  
+                <label for="young">Young to Old</label><br/>
+            </form>
+
 
         </div>
         </nav>

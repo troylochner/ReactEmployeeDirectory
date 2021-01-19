@@ -19,7 +19,7 @@ const EmployeeDirectory = () => {
             //default the sort order to ascending
             order: "ascend",
             //Declare the our default sort mode should be by name. This is the most logical way to do so. 
-            orderHeading :"Name",
+            orderHeading :"Age",
         
             //HEADINGS ARE TO BE PASSED INTO OUR EMP TABLE --> THIS PROVIDES SIZING AND NAMES FOR OUR COLUMNS
             headings: [{
@@ -48,16 +48,28 @@ const EmployeeDirectory = () => {
             }
             ]
         });
+        
         //ADD SORT
         const sortEmployees = event =>{
+            console.log('fire sorting option ' + event.target.value);
+            const employeesToSort = employees.filteredEmployees;
+            const sortedEmployees = employeesToSort.sort(function(a,b){
+               if (event.target.value === 'ascend'){
+                   return a.dob.age - b.dob.age} else {
+                    return b.dob.age - a.dob.age
+                   }
+            })
 
-        }
+            setEmployeeState({ ...employees, filteredEmployees: sortedEmployees, order: event.target.value });
+
+        };
 
         const filterEmployees = event =>{
-            console.log('fire')
+            console.log('fire filtering option ' + event.target.value)
             const filterBy = event.target.value;
             //console.log(filterBy);
             const toFilter = employees.employees
+            const sortOrder = employees.order
             //console.log(toFilter);
             const y = toFilter.filter(person => {
                 switch (filterBy) {
@@ -71,7 +83,7 @@ const EmployeeDirectory = () => {
             });
             //console.log(y)
             //AFTER FILTER HAS BEEN APPLIED ---> SET THE EMPLOYEE STATE AGAIN --> JUST FOR THE FILTERED GROUP
-            setEmployeeState({ ...employees, filteredEmployees: y });
+            setEmployeeState({ ...employees, filteredEmployees: y, order:sortOrder });
                 
         }
 
@@ -79,7 +91,7 @@ const EmployeeDirectory = () => {
 useEffect(() => {
     API.getEmployeeList().then(results => {
         // DIRECTORY INITIAL STATE WILL CLEAR ALL ARRAYS
-        setEmployeeState({ ...employees, employees: results.data.results, filteredEmployees: results.data.results, order: "descend" });
+        setEmployeeState({ ...employees, employees: results.data.results, filteredEmployees: results.data.results, order: "ascend" });
         //console.log(results.data.results);
     });
 }, [] );
