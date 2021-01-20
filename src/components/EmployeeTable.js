@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import EmployeeRowData from "./EmployeeRowData";
 import EmployeeContext from "../utils/EmployeeContext";
-//import "./EmployeeTable.css";
+
 
 
 const EmployeeTable = () => {

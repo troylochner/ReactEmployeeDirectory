@@ -14,8 +14,8 @@ An employee directory utilizing React
 https://troylochner.github.io/ReactEmployeeDirectory/
 
 ## Future Improvements
-- Would like to improve the column filtering options. 
-- Would like to use a different sorting methodlogy. 
+- Would like to explore age range slider control. 
+- Would like to add variable column sorting ability
 
 ## Application Home
 ![GitHub Logo](public/app_image.png)
