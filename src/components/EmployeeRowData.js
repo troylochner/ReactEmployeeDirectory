@@ -25,12 +25,12 @@ const EmployeeRowData = () => {
                 <td data-th="Age" className="align-middle">{dob.age} </td>
                 <td data-th="DOB" className="align-middle"> <Moment format="YYYY/MM/DD">{dob.date}</Moment></td>
               </tr>
-            );
+            )
           })
         ) : (<>NOTHING TO SEE HERE</>)};
 
       </tbody>
-    );
+    )
   }
   
   export default EmployeeRowData;

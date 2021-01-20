@@ -92,7 +92,7 @@ const EmployeeDirectory = () => {
 useEffect(() => {
     API.getEmployeeList().then(results => {
         // DIRECTORY INITIAL STATE WILL CLEAR ALL ARRAYS
-        setEmployeeState({ ...employees, employees: results.data.results, filteredEmployees: results.data.results, order: "ascend" });
+        setEmployeeState({ ...employees, employees: results.data.results, filteredEmployees: results.data.results });
         //console.log(results.data.results);
     });
 }, [] );
@@ -106,8 +106,6 @@ useEffect(() => {
             <EmployeeTable />:<div> NO MATCHING NAMES FOUND </div>}
             </div>
         </EmployeeContext.Provider>
-       
-
     );
 };
 

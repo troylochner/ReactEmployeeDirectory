@@ -16,13 +16,13 @@ const context = useContext(EmployeeContext);
                         {context.employees.headings.map(({ name, width }) => {
                             return (
                                 <th className="col" key={name} style={{ width }} >{name}</th>
-                            );
+                            )
                         })}
                     </tr>
                 </thead>
                 <EmployeeRowData/>
             </table>
         </div>
-    );
+    )
 }
 export default EmployeeTable;
